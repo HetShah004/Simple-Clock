@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shoutcut icon" type="img/png" href="Untitled.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      margin: 0;
+    }
+    .clock {
+      width: 100%;
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("https://lh3.googleusercontent.com/L5W5J5LVLbdw-puWmhejHTZMV8-VRj7QH_4tuFrmxK2mU18gX60CsB-SrzP8B9n7Lc4kFSmQejjHDg=w2560-h1440-rw-no");
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 9vw;
+      font-family: "Agency FB",serif;
+      letter-spacing: 1vw;
+      color: white;
+    }
+    .clock-body {
+      width: 70vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      height: 50vh;
+      background-color: rgba(0,0,0,0.45);
+      transition: 0.5s;
+      padding: 10px;
+    }
+    .pmam {
+      margin-left: 1vw;
+    }
+    .clock-time {
+      border: 1px #b5b5b5 solid;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      padding: 10px;
+      transition: 0.5s;
+    }
+    .fa-clock-o {
+      animation-name: clock-animation;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes clock-animation {
+      0% {
+        font-size: 9vw;
+      }
+      50% {
+        font-size: 9.5vw;
+      }
+      100% {
+        font-size: 9vw;
+      }
+    }
+  </style>
+  <title>
+    New Tab
+  </title>
+</head>
+<body>
+<div class="clock">
+    <div class="clock-body">
+      <span class="clock-icon"><i class="fa fa-clock-o"></i></span>
+      <div class="clock-time">
+      <span class="hour" id="hour"></span>:
+      <span class="minute" id="minute"></span>:
+      <span class="seconds" id="seconds"></span>
+      <span class="pmam" id="pmam"></span>
+      </div>
+    </div>
+</div>
+<script>
+  let date = new Date();
+  let seconds = date.getSeconds();
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  if(hours > 12) {
+    document.getElementById("pmam").innerHTML = "PM"
+  }
+  else{
+    document.getElementById("pmam").innerHTML = "AM"
+  }
+  function printTime() {
+    let date = new Date();
+    let seconds = date.getSeconds();
+    let minutes = date.getMinutes();
+    let hours = date.getHours();
+      document.getElementById("hour").innerHTML = hours - 12;
+      document.getElementById("minute").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+  }
+  setInterval(printTime, 0.1);
+</script>
+</body>
+</html>
