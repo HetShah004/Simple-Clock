@@ -32,6 +32,26 @@
       background-color: rgba(0,0,0,0.45);
       transition: 0.5s;
       padding: 10px;
+      -webkit-animation-name: onload-animation;
+      -moz-animation-name: onload-animation;
+      -o-animation-name: onload-animation;
+      animation-name: onload-animation;
+      animation-iteration-count: 1;
+      animation-duration: 2s;
+    }
+    @keyframes onload-animation{
+      0%{
+        opacity: 0;
+        margin-top: -105vh;
+      }
+      50% {
+        opacity: 0.5;
+        margin-top: 5vh;
+      }
+      100% {
+        opacity: 1;
+        margin-top: 0;
+      }
     }
     .pmam {
       margin-left: 1vw;
@@ -79,8 +99,6 @@
 </div>
 <script>
   let date = new Date();
-  let seconds = date.getSeconds();
-  let minutes = date.getMinutes();
   let hours = date.getHours();
   if(hours > 12) {
     document.getElementById("pmam").innerHTML = "PM"
@@ -93,7 +111,13 @@
     let seconds = date.getSeconds();
     let minutes = date.getMinutes();
     let hours = date.getHours();
+    ;
+    if(hours > 12){
       document.getElementById("hour").innerHTML = hours - 12;
+    }
+    else {
+      document.getElementById("hour").innerHTML = hours;
+    }
       document.getElementById("minute").innerHTML = minutes;
       document.getElementById("seconds").innerHTML = seconds;
   }
