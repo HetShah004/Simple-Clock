@@ -1,101 +1,113 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="shoutcut icon" type="img/png" href="Untitled.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    body {
-      margin: 0;
-    }
-    .clock {
-      width: 100%;
-      height: 100vh;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-image: url("https://lh3.googleusercontent.com/L5W5J5LVLbdw-puWmhejHTZMV8-VRj7QH_4tuFrmxK2mU18gX60CsB-SrzP8B9n7Lc4kFSmQejjHDg=w2560-h1440-rw-no");
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 9vw;
-      font-family: "Agency FB",serif;
-      letter-spacing: 1vw;
-      color: white;
-    }
-    .clock-body {
-      width: 70vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 10px;
-      height: 50vh;
-      background-color: rgba(0,0,0,0.45);
-      transition: 0.5s;
-      padding: 10px;
-      -webkit-animation-name: onload-animation;
-      -moz-animation-name: onload-animation;
-      -o-animation-name: onload-animation;
-      animation-name: onload-animation;
-      animation-iteration-count: 1;
-      animation-duration: 2s;
-    }
-    @keyframes onload-animation{
-      0%{
-        opacity: 0;
-        margin-top: -105vh;
-      }
-      50% {
-        opacity: 0.5;
-        margin-top: 5vh;
-      }
-      100% {
-        opacity: 1;
-        margin-top: 0;
-      }
-    }
-    .pmam {
-      margin-left: 1vw;
-    }
-    .clock-time {
-      border: 1px #b5b5b5 solid;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      padding: 10px;
-      transition: 0.5s;
-    }
-    .fa-clock-o {
-      animation-name: clock-animation;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
-    }
-    @keyframes clock-animation {
-      0% {
-        font-size: 9vw;
-      }
-      50% {
-        font-size: 9.5vw;
-      }
-      100% {
-        font-size: 9vw;
-      }
-    }
-  </style>
-  <title>
-    New Tab
-  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title></title>
 </head>
+<style>
+  body {
+    margin: 0;
+  }
+  .clock {
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://lh3.googleusercontent.com/L5W5J5LVLbdw-puWmhejHTZMV8-VRj7QH_4tuFrmxK2mU18gX60CsB-SrzP8B9n7Lc4kFSmQejjHDg=w2560-h1440-rw-no");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9vw;
+    font-family: "Agency FB",serif;
+    letter-spacing: 1vw;
+    color: white;
+  }
+  .clock-body {
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 50vh;
+    background-color: rgba(0,0,0,0.45);
+    transition: 1s;
+    padding: 10px;
+    -webkit-animation-name: onload-animation;
+    -moz-animation-name: onload-animation;
+    -o-animation-name: onload-animation;
+    animation-name: onload-animation;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    position: fixed;
+  }
+  span::selection {
+    background-color: rgba(255,255,255,0.4);
+    color: #001a5c;
+  }
+  @keyframes onload-animation{
+    0%{
+      transform: scale(100, 100);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  .pmam {
+    margin-left: 1vw;
+  }
+  .clock-time {
+    border: 1px #b5b5b5 solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.5s;
+  }
+  .fa-clock-o {
+    animation-name: clock-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes clock-animation {
+    0% {
+      font-size: 9vw;
+    }
+    50% {
+      font-size: 9.5vw;
+    }
+    100% {
+      font-size: 9vw;
+    }
+  }
+  .containr {
+    position: fixed;
+    bottom: 1vh;
+
+    right: 0.5vw;
+  }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel="shoutcut icon" type="img/png" href="Untitled.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 <div class="clock">
-    <div class="clock-body">
-      <span class="clock-icon"><i class="fa fa-clock-o"></i></span>
-      <div class="clock-time">
-      <span class="hour" id="hour"></span>:
-      <span class="minute" id="minute"></span>:
-      <span class="seconds" id="seconds"></span>
-      <span class="pmam" id="pmam"></span>
-      </div>
+  <div class="clock-body">
+    <span class="clock-icon"><i class="fa fa-clock-o"></i></span>
+    <div class="clock-time">
+      <span class="hour" id="hour">Hour</span>:
+      <span class="minute" id="minute">Minute</span>:
+      <span class="seconds" id="seconds">Seconds</span>
+      <span class="pmam" id="pmam">AM/PM</span>
     </div>
+  </div>
+</div>
+<div class="containr">
+  <button type="button" class="btn btn-dark btn-increase" id="button">Increase</button>
+  <button type="button" class="btn btn-dark btn-decrease" id="button">Decrease</button>
 </div>
 <script>
   let date = new Date();
@@ -111,17 +123,24 @@
     let seconds = date.getSeconds();
     let minutes = date.getMinutes();
     let hours = date.getHours();
-    ;
     if(hours > 12){
       document.getElementById("hour").innerHTML = hours - 12;
     }
     else {
       document.getElementById("hour").innerHTML = hours;
     }
-      document.getElementById("minute").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
+    document.getElementById("minute").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
   }
-  setInterval(printTime, 0.1);
+  setInterval(printTime, 10);
+  $(document).ready(function(){
+    $(".btn-decrease").click(function(){
+      $(".clock-body").animate({height: "-=100px"});
+    })
+    $(".btn-increase").click(function(){
+      $(".clock-body").animate({height: "+=100px"});
+    })
+  })
 </script>
 </body>
 </html>
